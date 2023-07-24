@@ -4,9 +4,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 ## System Requirement
-1)Node version 18 or above
-2)Latest Angular Version
-3)Any Editor
+- Node version 18 or above
+- Latest Angular Version
+- Any Editor
 
 Used Version During Development-
 Angular CLI: 16.1.5
@@ -15,16 +15,18 @@ Package Manager: npm 9.6.7
 
 ## Steps For Local Setup
 
-1)In Order to run this website on loca server first we need to make sure our backend server
+In Order to run this website on loca server first we need to make sure our backend server
 for jwt-token is up and running.
-2)So in root directory first go to below mentiond folder
+- So in root directory first go to below mentiond folder
 - cd jwt-fake-server/fake-api-jwt-json-server-master/
 - npm install
-3)Once above step ran successfully then run below command-
-- node server.js
-4)It will up our fake-jwt-server
 
-5)Now for UI local setup-
+Once above step ran successfully then run below command-
+
+- node server.js
+It will up our fake-jwt-server
+
+Now for UI local setup-
 - Go to root directory of project repo
 - npm install
 - ng serve and open localhost:4200

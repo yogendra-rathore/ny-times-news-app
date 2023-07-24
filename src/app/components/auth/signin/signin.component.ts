@@ -18,13 +18,7 @@ export class SigninComponent {
     "message":'Incorrect Credentials'
   }
   constructor(private router:Router,private authService:UserAuthService,private shared:SharedService) { 
-    // if(localStorage.getItem('token')==null){
-    //   console.log("token in login screen",localStorage.getItem('token'));
-    //   this.router.navigateByUrl('login');
-    // }else{
-      
-    //   this.router.navigateByUrl('home');
-    // }
+
   }
 
   ngOnInit(): void {

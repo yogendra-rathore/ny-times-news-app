@@ -25,7 +25,6 @@ export class SignupComponent {
   ngOnInit(): void {
   }
   async userSignUp(){
-     console.log("final sign up data",this.signupform.value);
      
     let payload={
       email: this.signupform.value.email,
@@ -55,7 +54,7 @@ export class SignupComponent {
     
   }
   resetForm(){
-    this.signupform.reset({});
+    this.signupform.reset();
   }
 
 }

@@ -1,0 +1,36 @@
+<div class="my-3">
+    <div class="card">
+    <span  style="z-index:1 ;left: 90%;" class="position-absolute top-0  translate-middle badge rounded-pill bg-danger">
+            {{newsItem.subsection ? newsItem.subsection:'trending'}}
+          </span>
+      <img src={{newsItem.multimedia?.[0]?.url}} style="height: 200px;" class="card-img-top" alt="headlines" />
+      <div class="card-body">
+        <h5 class="card-title">
+          {{newsItem.title | descriptionShortner:30}}          
+        </h5>
+        <p class="card-text">{{newsItem.abstract | descriptionShortner:50}}</p>
+        <p class="card-text">
+          <small class="text-muted">
+            {{newsItem.byline | descriptionShortner:20}} on {{newsItem.published_date| date}}
+          </small>
+        </p>
+        <a
+          href={{newsItem.url}}
+          target="_blank"
+          class="btn btn-sm btn-dark"
+          rel="noreferrer"
+        >
+          Visit Article
+        </a>
+        <button (click)="toggleFooterVisibility()" class="btn btn-sm btn-dark mx-2">Read More</button>
+      </div>
+      <div class="card-footer" *ngIf="isFooterVisible">
+        <div class="news-attributes">
+          <p><strong>Description:</strong> {{ newsItem.abstract }}</p>
+          <p><strong>Section:</strong> {{ newsItem.section | uppercase }}</p>
+          <p><strong>Location:</strong> {{ newsItem.geo_facet[0] }}</p>
+          <p><strong>Updated At:</strong> {{ newsItem.updated_date | date }}</p>
+        </div>
+      </div>
+    </div>
+  </div>

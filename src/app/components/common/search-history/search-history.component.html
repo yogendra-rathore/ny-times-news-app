@@ -1,0 +1,15 @@
+<div class="col-sm-4">
+    <div class="d-flex my-2 text-center">
+      <span
+        *ngFor="let keyword of keywords | slice:0:5"
+        class="badge bg-secondary text-light m-1"
+      >
+        {{ keyword.value }} <i class="fa fa-arrow-up" aria-hidden="true"></i>
+
+      </span>
+      
+    </div>
+    <div *ngIf="isLoadingFooterData">
+        <span class="text-center">Loading...</span>
+    </div>
+  </div>

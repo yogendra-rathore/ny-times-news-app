@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img style='width: 30px;border-radius: 10px;padding: 2px;' src='/assets/nyIcon.png' alt="logo" />NY Times News Byte</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul *ngIf="this.router.url==='/news-articles' || this.router.url==='/news-articles/world-stories' || this.router.url==='/news-articles/science-stories'" class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a [ngClass]="this.router.url==='/news-articles'?'nav-link active':'nav-link'" aria-current="page" routerLink="/news-articles" >Top News</a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="this.router.url==='/news-articles/world-stories'?'nav-link active':'nav-link'" routerLink="/news-articles/world-stories">World</a>
+          </li>
+          <li class="nav-item">
+            <a [ngClass]="this.router.url==='/news-articles/science-stories'?'nav-link active':'nav-link'" routerLink="/news-articles/science-stories">Science</a>
+          </li>
+
+        </ul>
+  
+
+       
+
+      </div>
+                <!-- start -->
+                <form *ngIf="this.router.url==='/' || this.router.url==='/signup'||this.router.url==='/resetPassword' else loggedIn" class="d-flex ml-auto">
+                    <a class="btn btn-primary mx-2" routerLink="/" role="button">Login</a>
+                    <a class="btn btn-primary mx-2" routerLink="signup" role="button">Sign-Up</a>
+                    </form>
+                <ng-template #loggedIn>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Welcome {{loggedInUser}}
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/">Profile</a></li>
+                          <li><a class="dropdown-item" href="/">Something</a></li>
+                          <li><hr class="dropdown-divider"/></li>
+                          <li><a  style="cursor: pointer;" class="dropdown-item" (click)="handleLogout()"  >LogOut</a></li>
+                        </ul>
+                      </div>
+                </ng-template>
+                <!--end  -->
+    </div>
+  </nav>

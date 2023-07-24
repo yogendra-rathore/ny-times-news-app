@@ -1,0 +1,70 @@
+<div style="display:flex;flex-direction:column;align-items:center" class="container my-4">
+      <form [formGroup]="signupform"   (ngSubmit)="userSignUp()">
+      <h2>Register here to get started</h2>
+        <div class="my-4">
+          <label htmlFor="email" class="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            class="form-control form-check"
+            id="email"
+            name="email"
+            aria-describedby="emailHelp"
+            formControlName="email"
+            required
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label htmlFor="name" class="form-label">
+            Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            class="form-control form-check"
+            id="name"
+            formControlName="name"
+            required
+          />
+        </div>
+        <div class="mb-3">
+        <label htmlFor="org" class="form-label">
+            Organization Name
+          </label>
+          <input
+            type="text"
+            class="form-control form-check"
+            id="org"
+            name="org"
+            aria-describedby="emailHelp"
+           formControlName="org"
+            required
+          />
+        </div>
+  
+        <div class="mb-3">
+          <label htmlFor="password" class="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            name="password"
+            class="form-control form-check"
+            id="password"
+           formControlName="password"
+            required
+          />
+        </div>
+  
+        <div>
+          <button [disabled]="!signupform.valid" type="submit" class="btn btn-primary">
+            Submit
+          </button>
+          <button  (click)="resetForm()" class="btn btn-primary mx-4">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>

@@ -1,0 +1,15 @@
+.passIcon{
+    background-color: white;
+    border: none;
+}
+
+.passIcon:hover{
+    cursor: pointer;
+}
+
+.mybtn{
+    width: 100%;
+}
+
+.mySignUpHeading{ width:100%; text-align:center; border-bottom: 1px solid #000; line-height:0.1em; margin:10px 0 20px; } 
+.mySignUpHeading span { background:#fff; padding:0 10px; }

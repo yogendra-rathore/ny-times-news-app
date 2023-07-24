@@ -1,0 +1,45 @@
+<div class="container my-3">
+    <h2 style="text-align: center">Today's World Stories</h2>
+    <div class="d-flex justify-content-center">
+      <form class="d-flex col-sm-6">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="searchQuery"
+          [(ngModel)]="searchQuery"
+          (ngModelChange)="onSearch()"
+        >
+        <button class="btn btn-outline-success" >Search</button>
+      </form>
+    </div>
+  
+    <app-loader *ngIf="showLoader"></app-loader>
+  
+    <div *ngIf="!showLoader" class="container my-3">
+      <div class="row">
+        <app-news-card
+          class="col-md-4"
+          *ngFor="let news of pagedNewsList"
+          [newsItem]="news"
+        ></app-news-card>
+      </div>
+    </div>
+    <nav *ngIf="!showLoader" aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" [ngClass]="{ 'disabled': currentPage === 1 }">
+          <a class="page-link hover-link" (click)="onPageChange(currentPage - 1)">Previous</a>
+        </li>
+        <li class="page-item" *ngFor="let page of getPagesArray()" [ngClass]="{ 'active': currentPage === page }">
+          <a class="page-link" (click)="onPageChange(page)">{{ page }}</a>
+        </li>
+        <li class="page-item" [ngClass]="{ 'disabled': currentPage === totalPages }">
+          <a class="page-link hover-link" (click)="onPageChange(currentPage + 1)">Next</a>
+        </li>
+      </ul>
+    </nav>
+    
+  </div>
+  
+

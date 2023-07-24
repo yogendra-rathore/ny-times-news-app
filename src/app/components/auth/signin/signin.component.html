@@ -1,0 +1,90 @@
+<div  class="my-5">
+    <div style="display:flex;flex-direction:column;align-items:center">
+    <form style="width: 25%;" #loginform="ngForm" class="was-validated" (ngSubmit)="getLoginDetails(loginform.value)" >
+    <h2 class="text-center">Welcome NY Times</h2>
+      <div class="my-4">
+        <label for="email" class="form-label">
+          Username
+        </label>
+        <input
+          type="email"
+          class="form-control form-check"
+          id="email"
+          name="email"
+          ngModel
+          #email="ngModel"
+          aria-describedby="emailHelp"
+          style="border:none;border-bottom:1px solid black"
+          placeholder="Enter your username here"
+           required
+           
+        />
+        
+        <div *ngIf="email.touched"  class="invalid-feedback">
+        Please enter a valid username.
+        </div>
+        
+        </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">
+          Password
+        </label>
+        <div class="input-group" >
+        <input
+        [type]="showPassword ? 'text' : 'password'"
+          name="password"
+          class="form-control form-check"
+          id="password"
+          ngModel
+          #password="ngModel"
+          placeholder="Enter password here"
+          
+          required
+          style="border:none;border-bottom:1px solid black"
+        />
+        <div  class="input-group-append">
+          <span (click)="showPass()" class="input-group-text passIcon">
+            <i  class="fa" [ngClass]="{
+              'fa-eye-slash': !showPassword,
+              'fa-eye': showPassword
+            }" ></i>
+          </span>
+       </div>
+        <!-- <i style="margin-left:2px;cursor:pointer">{credentials.showPassword?<FaEye onClick={handlePassShowHide}/>:<FaEyeSlash onClick={handlePassShowHide}/>}</i> -->
+        </div>
+          <p *ngIf="errorMessage" class="my-2" style="color:red">Username or Password is incorrect </p>
+          <div class="invalid-feedback">
+        Please provide your password.
+        </div>
+      </div>
+        
+      <div class="mb-3 form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="rememberme"
+          name="rememberme"
+          
+          
+        />
+        <label class="form-check-label" for="rememberme">
+          Remember Me
+        </label>
+      </div>
+      <div>
+        <a routerLink="/resetPassword">Forgot Username/password?</a>
+      </div>
+
+      <button
+      [disabled]="!loginform.form.valid"
+        type="submit"
+        class="btn btn-primary my-2 mybtn"
+      >
+        Submit
+      </button>
+      <h5 class="mySignUpHeading my-3"><span>New To NY Times</span></h5>
+      <a class="btn btn-primary mybtn my-3" routerLink="/signup">Sign Up</a>
+</form>
+    </div>
+    
+  </div>
